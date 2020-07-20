@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  edb:
+    image: "edgelesssystems/edb"
+    restart: unless-stopped
+    networks:
+      edb-net:
+        aliases:
+          - edgeless.db
+    devices:
+      - "/dev/sgx"
+    volumes:
+      - type: volume
+        source: edb
+        target: /edb/data
+
+  pccs:
+    image: "edgelesssystems/pccs"
+    restart: unless-stopped
+    networks:
+      edb-net:
+        aliases:
+          - pccs
+
+networks:
+  edb-net:
+    name: edb-net
+  
+volumes:
+  edb:
