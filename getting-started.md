@@ -96,12 +96,18 @@ On success, this writes your instance's certificate to `edb.pem`. The file `quot
 
 ```json
 {
-  "SignerID": "10c62e3cf357b07cdee83aa21838df9a3ea38754d761723e3f327dbcbd6cd6d4", // The ID of the signing key used by Edgeless Systems GmbH for the enclave package (aka MRSIGNER)
-  // "UniqueID": "..." // The hash of the enclave package (aka MRENCLAVE)
-  "ProductID": 2, // The product ID of Edgeless DB
-  "SecurityVersion": 1 // The security patch version of Edgeless DB
+  "SignerID": "10c62e3cf357b07cdee83aa21838df9a3ea38754d761723e3f327dbcbd6cd6d4", 
+  "ProductID": 2,
+  "SecurityVersion": 1 
 }
 ```
+
+The following enclave parameters exist:
+* `SignerID`: the ID of the signing key used by Edgeless Systems GmbH for the enclave package (aka MRSIGNER)
+* `UniqueID`: the hash of the enclave package (aka MRENCLAVE); *not used here*
+* `ProductID`: the product ID of Edgeless DB
+* `SecurityVersion`: the security patch version of Edgeless DB
+
 You are now ready to talk securely to your Edgeless DB instance.
 
 ### Step #4: Install the manifest
